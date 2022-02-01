@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<title>나의 일상</title>
+<title>55번버스</title>
 <meta charset="utf-8">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VHR5V70H8"></script>
@@ -13,33 +13,79 @@
   gtag('config', 'G-2VHR5V70H8');
 </script>
 <style>
-  h1 {
-    color:green;
+  a {
+    color: black;
     text-decoration: none;
+  }
+  h1 {
     text-align: center;
+    font-size: 45px;
+    border-bottom:1px solid gray;
+    margin: 0;
+    padding: 20px;
+  }
+  ol {
+    border-right: 1px solid gray;
+    width:100px;
+    margin:0;
+    padding: 20px;
+  }
+  body {
+    margin: 0;
+  }
+  .head {
+    text-decoration: underline;
+    color : blue;
+  }
+  #grid ol {
+    padding-left: 30px;
+  }
+  #grid {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+  }
+  #하위 {
+    padding-left: 25px
+  }
+  @media (max-width:700px) {
+    #grid {
+      display: block;
+    }
+    ol {
+      border-right: none;
+    }
+    h1 {
+      border-bottom: none;
+      }
+  }
+  @media (max-width:2000px) {
+    img{
+      width: 70%
+    }
   }
 </style>
 </head>
 
 <body>
-  <h1><a href="index.html" style="color:green">평택 버스 시간</a></h1>
-<ol>
-<li><a href="1452번버스.html">1452번버스</a></li>
-<li><a href="m5438버스.html">m5438버스</a></li>
-<li><a href="55번버스.html">55번버스</a></li>
-</ol>
-<h2>홈</h2>
-<p>이 곳은 <strong>나의 <u>일상</u></strong>을 기록하는 곳 이다
-<a href="https://opentutorials.org/course/3084/18418" target="_blank" title="참고사이트">참고사이트</a></p>
-<img src="2.jpg" width="30%">
+  <h1><a href="index.html">평택 버스 시간</a></h1>
+<div id="grid">
+  <ol>
+    <li><a href="1452번버스.html">1452번버스</a></li>
+    <li><a href="m5438버스.html">m5438버스</a></li>
+    <li><a href="55번버스.html">55번버스</a></li>
+  </ol>
+    <div id="하위">
+      <h2>55번버스</h2>
+      <p>55번 <strong> <u>2021.8.1 </u></strong>기준
+      <a href="https://www.pyeongtaek.go.kr/pyeongtaek/bbs/view.do?mId=1101000000&bIdx=241528&ptIdx=57" target="_blank" title="출처" class="head">(출처)</a></p>
+      <img src="55번버스.png" width="30%">
+    </div>
+</div>
+
+
+
+
 <p>
-<iframe width="50%" height="500" src="https://www.youtube.com/embed/fBGvW73ReyA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</P>
-<p style="margin-top:45px;">떨어지는 별똥별</p>
-<p>
-
-
-
   <div id="disqus_thread"></div>
   <script>
       /**
