@@ -3,6 +3,7 @@
 <head>
 <title>평택버스 시간표 홈</title>
 <meta charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VHR5V70H8"></script>
 <script>
@@ -27,25 +28,47 @@
 </head>
 
 <body>
-  <h1><a href="index.html">평택 버스 시간</a></h1>
+  <h1><a href="#!홈" onclick="fetchpage('홈')">평택 버스 시간</a></h1>
   <div id="button"><input type="button" value="night" onclick="
   nightdayhandler(this);
   "></div>
   <div id="grid">
-    <ol>
-      <li><a href="1452번버스.html">1452번버스</a></li>
-      <li><a href="m5438버스.html">m5438버스</a></li>
-      <li><a href="55번버스.html">55번버스</a></li>
-    </ol>
-      <div id="하위">
-        <h2>홈</h2>
-        <p>이 곳은 자주 타는 버스의 <strong> <u>시간표</u></strong>를 게재하는 웹사이트이다.
-        <a href="https://www.pyeongtaek.go.kr/pyeongtaek/bbs/list.do?ptIdx=57&mId=1101000000" target="_blank" title="출처" class="head">참고사이트</a></p>
-        <img src="2.jpg" width="30%">
-      </div>
+    <ul id="nav"></ul>
+    <article></article>
   </div>
 
+  <!-- ajax -->
+  <script>
+    function fetchpage(name){
+      fetch(name).then(function(response){
+        response.text().then(function(text){
+          document.querySelector('article').innerHTML = text;
+        })
+      });
+    }
+    if(location.hash){
+      fetchpage(location.hash.substring(2));
+    } else {
+      fetchpage('홈');
+    }
+    fetch('list').then(function(response){
+      response.text().then(function(text){
+        // <li><a href="#!1452" onclick="fetchpage('1452')">1452번버스</a></li>
+        var i = 0;
+        var items = text.split(',');
+        var tags = ""
+        while(i<items.length){
+        var item = items[i]
+        var tag = '<li><a href="#!'+item+'" onclick="fetchpage(\''+item+'\')">'+item+'번버스</a></li>';
+        tags = tags + tag;
+        i = i + 1;
+        }
+        document.querySelector('#nav').innerHTML = tags;
+      })
+    });
 
+  </script>
+  <!-- ajax -->
 
 
 

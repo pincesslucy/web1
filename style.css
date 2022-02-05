@@ -8,7 +8,7 @@ h1 {
   padding: 20px;
   padding-bottom: 0px;
 }
-ol {
+ul {
   border-right: 1px solid gray;
   width:100px;
   margin:0;
@@ -22,7 +22,7 @@ body {
   text-decoration: underline;
   color : blue;
 }
-#grid ol {
+#grid ul {
   padding-left: 30px;
 }
 #grid {
@@ -40,7 +40,7 @@ body {
   #grid {
     display: block;
   }
-  ol {
+  ul {
     border-right: none;
   }
   #button{
