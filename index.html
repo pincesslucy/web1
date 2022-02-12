@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<title>평택버스 시간표 홈</title>
+<meta charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2VHR5V70H8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2VHR5V70H8');
+</script>
+<link rel="stylesheet" href="style.css">
+<style>
+  h2{
+    text-align: center;
+  }
+  @media (max-width:1400px) {
+    img{
+      width: 70%
+    }
+  }
+</style>
+<script src="colors.js"></script>
+</head>
+
+<body>
+  <h1><a href="#!홈" onclick="fetchpage('홈')">평택 버스 시간</a></h1>
+  <div id="button"><input type="button" value="night" onclick="
+  nightdayhandler(this);
+  "></div>
+  <div id="grid">
+    <ul id="nav"></ul>
+    <article></article>
+  </div>
+
+  <!-- ajax -->
+  <script>
+    function fetchpage(name){
+      fetch(name).then(function(response){
+        response.text().then(function(text){
+          document.querySelector('article').innerHTML = text;
+        })
+      });
+    }
+    if(location.hash){
+      fetchpage(location.hash.substring(2));
+    } else {
+      fetchpage('홈');
+    }
+    fetch('list').then(function(response){
+      response.text().then(function(text){
+        // <li><a href="#!1452" onclick="fetchpage('1452')">1452번버스</a></li>
+        var i = 0;
+        var items = text.split(',');
+        var tags = ""
+        while(i<items.length){
+        var item = items[i]
+        var tag = '<li><a href="#!'+item+'" onclick="fetchpage(\''+item+'\')">'+item+'번버스</a></li>';
+        tags = tags + tag;
+        i = i + 1;
+        }
+        document.querySelector('#nav').innerHTML = tags;
+      })
+    });
+
+  </script>
+  <!-- ajax -->
+
+
+
+  <p>
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://web1-oyfi6ehewl.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+  </p>
+
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/61f55e6d9bd1f31184d9f69e/1fqj7hnnj';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
+
+</body>
+</html>
