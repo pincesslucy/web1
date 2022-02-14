@@ -1,0 +1,49 @@
+a {
+  text-decoration: none;
+}
+h1 {
+  text-align: center;
+  font-size: 45px;
+  margin: 0;
+  padding: 20px;
+  padding-bottom: 0px;
+}
+ul {
+  border-right: 1px solid gray;
+  width:100px;
+  margin:0;
+  padding: 20px;
+  text-decoration: underline;
+}
+body {
+  margin: 0;
+}
+.head {
+  text-decoration: underline;
+  color : blue;
+}
+#grid ul {
+  padding-left: 30px;
+}
+#grid {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+}
+#하위 {
+  padding-left: 25px
+}
+#button{
+    border-bottom:1px solid gray;
+    padding-bottom: 10px;
+}
+@media (max-width:700px) {
+  #grid {
+    display: block;
+  }
+  ul {
+    border-right: none;
+  }
+  #button{
+      border-bottom:none;
+  }
+}
